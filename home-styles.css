@@ -112,9 +112,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    gap: 8px;
     width: 100%;
-    max-width: 700px;
+    max-width: 450px;
     padding: 15px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
@@ -125,15 +125,16 @@ body {
 
 .text-entry {
     flex: 1;
-    padding: 15px;
+    padding: 5px;
     font-size: 1.2rem; /* Bigger text entry */
     border: 1px solid #ccc;
     border-radius: 5px;
+    max-width: 300px;
 }
 
 
 .image-import-button {
-    padding: 15px 25px;
+    padding: 15px 5px;
     font-size: 1.2rem;
     background-color: #8B4513; /* Same brown color as navbar */
     color: white;
@@ -153,7 +154,7 @@ body {
 }
 
 .post-button {
-    padding: 15px 25px;
+    padding: 15px 5px;
     font-size: 1.2rem;
     background-color: #8B4513; /* Same brown color as navbar */
     color: white;
