@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFF9D4; /* Light yellow background */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.hidden-post{
+    visibility: hidden;
+}
+
+.pfp{
+    border-radius: 5px;
+}
+
+.hidden-post,
+.post {
+    background-color: #f5f3f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin: 5px;
+}
+
+.user {
+    color: #8B4513;
+    font-weight: 900;
+}
+
+.text {
+    font-size: large;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px; /* Thicker navbar */
+    background-color: #8B4513; /* Brown color */
+    display: flex;
+    justify-content: center; /* Centers the "Home" button */
+    align-items: center; /* Vertically centers content */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Ensures navbar stays above other content */
+    padding: 0 20px;
+}
+
+
+.home-button {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Proper centering */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+	line-height: 0px;
+}
+
+
+.user-button {
+    margin-left: auto; /* Pushes the User button to the far right */
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    padding-right: 30px; /* Add requested padding */
+}
+
+
+.notebook-page {
+    padding-top: 90px; /* Adds space for the navbar */
+    position: relative;
+    min-height: 100vh;
+    background-color: #FFF9D4; /* Light yellow background */
+}
+
+
+.content {
+    padding-bottom: 80px; /* Space for the entry area */
+}
+
+
+.entry-area {
+    position: fixed;
+    bottom: 40px; /* Raised higher */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 5; /* Ensure it doesn’t overlap the navbar */
+}
+
+
+.text-entry {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.2rem; /* Bigger text entry */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.image-import-button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: #8B4513; /* Same brown color as navbar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.image-import-button:hover {
+    background-color: #6A2C00;
+}
+
+
+.hidden-input {
+    display: none;
+}
+
+.post-button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: #8B4513; /* Same brown color as navbar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.post-button:hover {
+    background-color: #6A2C00;
+}
+

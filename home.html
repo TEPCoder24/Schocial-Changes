@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+	{% load static %}	
+    <link rel="stylesheet" href={%static "home-styles.css"%}>
+</head>
+<body>
+    <nav class="navbar">
+        <a href={%url "home"%}><div class="home-button">Schocial</div></a>
+        <div class="user-button"><a href={%url "user"%}><img src={%static "user-icon.png"%} height="80px" width="80px"></a></div>
+    </nav>
+    <div class="notebook-page">
+        <div class="content">
+            {% for post in userpost %}
+                <div class="post">
+                    {% if post.pfp %}
+                        <img class="pfp" src="/media/{{ post.pfp }}" width="40px" alt="pfp">
+                    {% else %}
+                        <img class="pfp" src="/media/profile-placeholder.png" width="40px" alt="pfp">
+                    {% endif %}
+                    <br>
+                    <span class="user">{{ post.username }} </span>
+                    <br>
+                    <span class="user">
+                        Grade: {{ post.grade }}
+                    </span>
+                        {{ post.time }}
+                    {% if user.username == post.username %}
+                        <a href={% url "delete" post.id %}>Delete</a>
+                    {% endif %}
+                    <hr>
+                    {% if post.img %}
+                        <img src="/media/{{ post.img }}" width="200px" alt="image">
+                    {% endif %}
+                    {% if post.vid %}
+                        <video controls width="200px"><source src="/media/{{ post.vid }}"> Your browser does not support the video womp womp</video>
+                    {% endif %}
+                    <br>
+                    {% if post.text %}
+                        <span class="text">{{post.text}}</span>
+                    {% endif %}
+                    <br>
+                    <br>
+                    {% if user in post.likes.all %}
+                        {{ post.like_count }} Likes - <a href="{% url 'likes_page' post.id %}">Unlike</a>
+                    {% else %}
+                        {{ post.like_count }} Likes - <a href="{% url 'likes_page' post.id %}">Like</a>
+                    {% endif %}
+                    <br>
+                    {% if user in post.dislikes.all %}
+                        {{ post.dislike_count }} Dislikes - <a href="{% url 'dislikes_page' post.id %}">Undislike</a>
+                    {% else %}
+                        {{ post.dislike_count }} Dislikes - <a href="{% url 'dislikes_page' post.id %}">Dislike</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="hidden-post"><br></div>
+            <div class="hidden-post"><br></div>
+            <div class="hidden-post"><br></div>
+            <div class="hidden-post"><br></div>
+        </div>
+        <form method="POST" action="{% url "home" %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="entry-area">
+                <input name="text" type="text" class="text-entry" placeholder="Enter text...">
+                <label for="image-input" class="image-import-button">Img</label>
+                <input name="img" type="file" id="image-input" class="hidden-input" accept="image/*">
+                <label for="video-input" class="image-import-button">Vid</label>
+                <input name="vid" type="file" id="video-input" class="hidden-input" accept="video/*">
+                <label for="post-input" class="image-import-button">Go</label>
+                <input type="submit" class="hidden-input" name="post" id="post-input">
+            </div>  
+        </form>   
+    </div>
+</body>
+</html>
+
+
+
